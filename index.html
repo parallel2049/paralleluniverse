@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>角色选择</title>
+    <style>
+        /* 页面整体样式 */
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f9f9f9;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+
+        /* 页面容器 */
+        .container {
+          width: 100%;
+          max-width: 1200px;
+          height: 90vh;
+          padding: 20px;
+          background-color: white;
+          border-radius: 15px;
+          box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* 顶部的Logo和更多按钮 */
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 20px;
+        }
+
+        .logo {
+          font-size: 28px;
+          font-weight: bold;
+          color: #333;
+        }
+
+        .more-btn {
+          padding: 10px 20px;
+          background-color: #3498db;
+          color: white;
+          border: none;
+          border-radius: 30px;
+          cursor: pointer;
+          font-size: 16px;
+          transition: background-color 0.3s ease;
+        }
+
+        .more-btn:hover {
+          background-color: #2980b9;
+        }
+
+        /* 角色选择区域 */
+        .character-list {
+          flex: 1;
+          overflow-y: scroll;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          scroll-behavior: smooth;
+          padding: 0 20px;
+        }
+
+        .character-item {
+          width: 200px;
+          height: 300px;
+          background-color: #ecf0f1;
+          border-radius: 15px;
+          text-align: center;
+          padding: 10px;
+          transition: transform 0.3s ease, background-color 0.3s ease;
+          cursor: pointer;
+          opacity: 0.8;
+        }
+
+        .character-item:hover {
+          transform: scale(1.05);
+          background-color: #3498db;
+          color: white;
+        }
+
+        .character-item.selected {
+          transform: scale(1.1);
+          background-color: #e74c3c;
+          color: white;
+          opacity: 1;
+        }
+
+        .character-name {
+          font-size: 20px;
+          margin-top: 20px;
+        }
+
+        .character-description {
+          font-size: 14px;
+          color: #7f8c8d;
+        }
+
+        /* 滚动区域 */
+        .character-list::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        .character-list::-webkit-scrollbar-thumb {
+          background-color: #aaa;
+          border-radius: 10px;
+        }
+
+        .character-list::-webkit-scrollbar-track {
+          background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 顶部的Logo和更多按钮 -->
+    <div class="header">
+        <div class="logo">游戏Logo</div>
+        <button class="more-btn" onclick="alert('跳转到更多页面')">更多</button>
+    </div>
+
+    <!-- 角色选择区域 -->
+    <div class="character-list" id="characterList">
+        <div class="character-item selected" id="A" onclick="selectCharacter('A')">
+            <img src="https://via.placeholder.com/150" alt="角色A" />
+            <div class="character-name">A角色</div>
+            <div class="character-description">角色A简介</div>
+        </div>
+        <div class="character-item" id="B" onclick="selectCharacter('B')">
+            <img src="https://via.placeholder.com/150" alt="角色B" />
+            <div class="character-name">B角色</div>
+            <div class="character-description">角色B简介</div>
+        </div>
+        <div class="character-item" id="C" onclick="selectCharacter('C')">
+            <img src="https://via.placeholder.com/150" alt="角色C" />
+            <div class="character-name">C角色</div>
+            <div class="character-description">角色C简介</div>
+        </div>
+        <div class="character-item" id="D" onclick="selectCharacter('D')">
+            <img src="https://via.placeholder.com/150" alt="角色D" />
+            <div class="character-name">D角色</div>
+            <div class="character-description">角色D简介</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 默认选中A角色
+    let selectedCharacter = 'A';
+
+    // 切换角色选择
+    function selectCharacter(characterId) {
+      // 移除当前选中的角色样式
+      document.getElementById(selectedCharacter).classList.remove('selected');
+
+      // 设置新选中的角色
+      selectedCharacter = characterId;
+      document.getElementById(selectedCharacter).classList.add('selected');
+
+      // 可以在这里加入其他逻辑，比如跳转到下一页
+      alert(`${characterId} 角色已选择`);
+    }
+
+    // 自动滚动到选中的角色
+    function scrollToSelected() {
+      const selectedElement = document.getElementById(selectedCharacter);
+      selectedElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+
+    // 页面加载时，滚动到默认选中的角色
+    window.onload = scrollToSelected;
+</script>
+
+</body>
+</html>
