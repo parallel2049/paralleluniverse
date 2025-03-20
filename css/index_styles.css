@@ -22,7 +22,7 @@ background:rgba(0, 0, 0, 0.8);
     left: 50%;
     width: min(100vw, calc(100vh * (768 / 1024)));
     height: 100vh;
-    background: url('/assets/images/cover_bg_min.png') no-repeat center center, black; /* 黑色背景 */
+    background: url('../assets/images/cover_bg_min.png') no-repeat center center, black; /* 黑色背景 */
     background-size: cover;
     transform: translate(-50%, -50%);
     z-index: 1;
