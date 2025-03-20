@@ -1,0 +1,106 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow: hidden; /* 禁止滚动 */
+    height: 100vh; /* 让 body 撑满整个视口 */
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    position: fixed; /* 让页面固定，防止 iOS 浏览器滑动 */
+background:rgba(0, 0, 0, 0.8);
+}
+
+/* 背景图片 */
+.background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: min(100vw, calc(100vh * (768 / 1024)));
+    height: 100vh;
+    background: url('/assets/images/cover_bg_min.png') no-repeat center center, black; /* 黑色背景 */
+    background-size: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/* 标题 */
+.title {
+    width: 322px; /* 设定与 SVG 相同的宽度，或者用 max-content */
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40%;
+    z-index: 2;
+}
+
+/* 底部遮罩层 */
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 30vh;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 80%,rgba(0, 0, 0, 0) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.header {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 30vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* 按钮容器 */
+.button-container {
+    text-align: center;
+    z-index: 2;
+}
+
+/* 渐变线条 */
+.line {
+    width: 240px;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    margin: 0.5px auto;
+    z-index: 2;
+}
+
+/* 透明按钮 */
+.start-button {
+    position: relative;
+    background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 40%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 60%,
+    rgba(255, 255, 255, 0) 100%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    padding: 22px 24px;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.start-button:hover {
+    opacity: 0.7;
+    z-index: 2;
+}
