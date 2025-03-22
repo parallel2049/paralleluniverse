@@ -1,10 +1,9 @@
 html {
-    font-family: "Red Hat Display";
     --prefers-color-scheme: "light";
     --padding: 200px;
     --border-width: 20px;
-    --background-color: #eee;
-    --background-2-color: #fff;
+    --background-color: #fcb400;
+    --background-2-color: #fcb400;
     --color: #000;
     --color-2: #666;
     --border-color: #ddd;
@@ -18,14 +17,6 @@ html {
     --pink: #ff08c2;
     --purple: #8b46ff;
     --grey: #444;
-    --safe-area-inset-top: 0px;
-    --safe-area-inset-right: 0px;
-    --safe-area-inset-bottom: 0px;
-    --safe-area-inset-left: 0px;
-    --safe-area-inset-top: constant(safe-area-inset-top);
-    --safe-area-inset-right: constant(safe-area-inset-right);
-    --safe-area-inset-bottom: constant(safe-area-inset-bottom);
-    --safe-area-inset-left: constant(safe-area-inset-left);
     --safe-area-inset-top: env(safe-area-inset-top);
     --safe-area-inset-right: env(safe-area-inset-right);
     --safe-area-inset-bottom: env(safe-area-inset-bottom);
@@ -250,25 +241,24 @@ html {
     left: 0;
     right: 0;
     /* bottom: 0; */
-    height: 100vh; /* 让picker-popup全屏 */
+    height: 100vh; /* picker-popup full screen */
     background-color: rgba(0, 0, 0, 0.2);
     --option-height: 400px;
     --toolbar-height: 0px;
     --popup-height: 100vh;
-    background-color: rgba(0, 0, 0, 1); /* 初始全黑 */
-    opacity: 0; /* 初始透明 */
-    animation: fade-in-opacity 3s forwards;
+    background-color: rgba(0, 0, 0, 1); /* Initial all black */
+    opacity: 0; /* initial transparency */
+    animation: fade-in-opacity 4s forwards;
 }
 .picker-popup .selector {
     position: absolute;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    position: absolute; /* 使用绝对定位 */
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     left: 0;
-    height: 100%; /* 让selector填满picker-popup */
+    height: 100%; /* selector fill the picker-popup */
     right: 0;
     bottom: 0;
-height: calc(var(--popup-height) + var(--safe-area-inset-bottom));
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -301,7 +291,7 @@ height: calc(var(--popup-height) + var(--safe-area-inset-bottom));
 }
 .picker-popup .selector .toolbar .left {
     position: absolute;
-left: calc(var(--safe-area-inset-left) + 8px);
+
     color: var(--blue);
     cursor: pointer;
 }
@@ -311,7 +301,7 @@ left: calc(var(--safe-area-inset-left) + 8px);
 }
 .picker-popup .selector .toolbar .right {
     position: absolute;
-right: calc(var(--safe-area-inset-right) + 8px);
+
     color: var(--blue);
     font-weight: 600;
     cursor: pointer;
@@ -323,7 +313,7 @@ right: calc(var(--safe-area-inset-right) + 8px);
     position: absolute;
     left: 0;
     width: min(100vw, calc(100vh * (768 / 1024)));
-height: calc( var(--popup-height) / 2 - var(--option-height) / 2 - var(--toolbar-height) / 2 );
+
     box-sizing: border-box;
     pointer-events: none;
     background-color: var(--background-2-color);
@@ -339,7 +329,7 @@ height: calc( var(--popup-height) / 2 - var(--option-height) / 2 - var(--toolbar
 }
 .picker-popup .selector .column {
     width: min(100vw, calc(100vh * (768 / 1024)));
- height: calc(var(--popup-height) - var(--safe-area-inset-bottom) - var(--toolbar-height));
+
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -373,8 +363,8 @@ height: calc( var(--popup-height) / 2 - var(--option-height) / 2 - var(--toolbar
     display: flex;
     width: min(100vw, calc(100vh * (768 / 1024)));
     align-items: center;
-    opacity: 0.5; /* 默认透明度 */
-    transition: opacity 0.5s ease-in-out; /* 让透明度变化平滑 */
+    opacity: 0.5; /* Default transparency */
+    transition: opacity 0.5s ease-in-out; /* Make transparency changes smooth */
 }
 .picker-popup .selector .column .option .pill {
     background-color: var(--border-color);
@@ -423,4 +413,12 @@ height: calc( var(--popup-height) / 2 - var(--option-height) / 2 - var(--toolbar
 
 }
 
+/* hide scroll bar */
+.picker-popup .selector .column {
+    scrollbar-width: none; /* hide Firefox scroll bar */
+    -ms-overflow-style: none; /* hide IE、Edge scroll bar */
+}
+.picker-popup .selector .column::-webkit-scrollbar {
+    display: none; /* hide Chrome、Safari、Edge scroll bar */
+}
 

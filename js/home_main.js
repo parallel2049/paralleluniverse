@@ -1,3 +1,4 @@
+//home.html
 document.addEventListener("DOMContentLoaded", function () {
     const options = document.querySelectorAll(".picker-popup .selector .column .option");
     const column = document.querySelector(".picker-popup .selector .column");
@@ -23,16 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 监听滚动和触摸滑动
+    // Listening for scrolling and touch sliding
     column.addEventListener("scroll", updateOpacity);
     column.addEventListener("touchmove", updateOpacity);
     column.addEventListener("wheel", updateOpacity);
 
-    // 初始化一次
+    // Initialize once
     updateOpacity();
 });
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const options = document.querySelectorAll(".picker-popup .selector .column .option");
     const column = document.querySelector(".picker-popup .selector .column");
@@ -58,21 +57,22 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 监听滚动和触摸滑动
+    // Listening for scrolling and touch sliding
     column.addEventListener("scroll", updateOpacity);
     column.addEventListener("touchmove", updateOpacity);
     column.addEventListener("wheel", updateOpacity);
 
-    // 初始化时直接调用一次
+    // Initialize once
     updateOpacity();
 });
 
+//home.html switch Sound
 document.addEventListener("DOMContentLoaded", function () {
     const column = document.querySelector(".picker-popup .column");
     const options = document.querySelectorAll(".picker-popup .option");
-    const sound = document.getElementById("scrollSound");
+    const sound = document.getElementById("switchsound");
 
-    let lastIndex = -1; // 记录上一次播放音效的选项索引
+    let lastIndex = -1;
 
     column.addEventListener("scroll", function () {
         let centerIndex = -1;
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         options.forEach((option, index) => {
             let rect = option.getBoundingClientRect();
-            let centerY = window.innerHeight / 2; // 视口中间
+            let centerY = window.innerHeight / 2;
             let distance = Math.abs(rect.top + rect.height / 2 - centerY);
 
             if (distance < minDistance) {
@@ -89,32 +89,28 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // 如果切换到新的选项，则播放音效
+        // switch to a new option, the sound effect plays
         if (centerIndex !== lastIndex) {
             lastIndex = centerIndex;
             if (sound) {
-                sound.currentTime = 0; // 重新播放
-                sound.play().catch(err => console.log("音效播放被阻止:", err));
+                sound.currentTime = 0; // again
+                sound.play().catch(err => console.log("Sound blocked:", err));
             }
         }
     });
 });
 
-
-// index.html
-function playSoundAndRedirect() {
-    let audio = document.getElementById("stargameSound");
-
-    // 播放音效
-    audio.play().then(() => {
-        // 延迟跳转，确保音效能播放一部分
-        setTimeout(() => {
-            window.location.href = 'pages/home.html';
-        }, 500); // 0.05秒延迟
-    }).catch(error => {
-        // 如果播放失败（可能因为浏览器策略），直接跳转
-        console.error("音效播放失败: ", error);
-        window.location.href = 'pages/home.html';
+//home.html bgm
+window.addEventListener('DOMContentLoaded', () => {
+    const bgm = document.getElementById("homebgm");
+    // autoplay
+    bgm.play().catch(() => {
+        console.log("autoplay");
     });
-}
+    // click play
+    document.body.addEventListener("click", () => {
+        bgm.play();
+    }, { once: true }); // just onece
+});
+
 
