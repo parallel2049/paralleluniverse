@@ -23,30 +23,3 @@ document.getElementById('showOverlayBtn').addEventListener('click', function() {
     document.querySelector('.overlay').classList.add('active');
 });
 
-
-
-// safari window.innerHeight
-function setFullHeight() {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-    document.documentElement.style.height = `${window.innerHeight}px`;
-}
-
-document.addEventListener("DOMContentLoaded", setFullHeight);
-
-window.addEventListener("resize", setFullHeight);
-
-
-// Disable zoom
-document.addEventListener('keydown', function(event) {
-    if ((event.ctrlKey || event.metaKey) &&
-    (event.key === '+' || event.key === '-' || event.key === '=')) {
-        event.preventDefault();
-    }
-});
-
-document.addEventListener('wheel', function(event) {
-    if (event.ctrlKey) {
-        event.preventDefault();
-    }
-}, { passive: false });
-
