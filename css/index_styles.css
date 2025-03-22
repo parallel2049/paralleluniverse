@@ -5,13 +5,13 @@
 }
 
 html, body {
+    height: calc(var(--vh) * 100);
     overflow: hidden; /* Disable scrolling */
-    height: 100vh; /* body fill the entire viewport */
     width: 100vw;
     margin: 0;
     padding: 0;
     position: fixed; /* Fixed the page prevent iOS browser from sliding */
-background:rgba(0, 0, 0, 1);
+    background:rgba(0, 0, 0, 1);
 }
 
 /* background image */

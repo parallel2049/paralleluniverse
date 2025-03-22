@@ -1,9 +1,6 @@
 html {
-    --prefers-color-scheme: "light";
     --padding: 200px;
     --border-width: 20px;
-    --background-color: #fcb400;
-    --background-2-color: #fcb400;
     --color: #000;
     --color-2: #666;
     --border-color: #ddd;
@@ -17,18 +14,14 @@ html {
     --pink: #ff08c2;
     --purple: #8b46ff;
     --grey: #444;
-    --safe-area-inset-top: env(safe-area-inset-top);
-    --safe-area-inset-right: env(safe-area-inset-right);
-    --safe-area-inset-bottom: env(safe-area-inset-bottom);
-    --safe-area-inset-left: env(safe-area-inset-left);
     background-color: var(--background-color);
 }
 
-
+/* dark mode */
 @media (prefers-color-scheme: dark) {
     html {
         --prefers-color-scheme: "dark";
-        --background-color: #222;
+        --background-color: #000;
         --background-2-color: #000;
         --color: #fff;
         --color-2: #9a9a9a;
@@ -36,182 +29,7 @@ html {
     }
 }
 
-@-webkit-keyframes picker-from-bottom {
-    0% {
-        -moz-transform: translateY(100%);
-        -o-transform: translateY(100%);
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
-    }
-    100% {
-        -moz-transform: translateY(0);
-        -o-transform: translateY(0);
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
-@-moz-keyframes picker-from-bottom {
-    0% {
-        -moz-transform: translateY(100%);
-        -o-transform: translateY(100%);
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
-    }
-    100% {
-        -moz-transform: translateY(0);
-        -o-transform: translateY(0);
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
-@-o-keyframes picker-from-bottom {
-    0% {
-        -moz-transform: translateY(100%);
-        -o-transform: translateY(100%);
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
-    }
-    100% {
-        -moz-transform: translateY(0);
-        -o-transform: translateY(0);
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
-@keyframes picker-from-bottom {
-    0% {
-        -moz-transform: translateY(100%);
-        -o-transform: translateY(100%);
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
-    }
-    100% {
-        -moz-transform: translateY(0);
-        -o-transform: translateY(0);
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
-@-webkit-keyframes picker-to-bottom {
-    0% {
-        -moz-transform: translateY(0);
-        -o-transform: translateY(0);
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    100% {
-        -moz-transform: translateY(100%);
-        -o-transform: translateY(100%);
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
-    }
-}
-@-moz-keyframes picker-to-bottom {
-    0% {
-        -moz-transform: translateY(0);
-        -o-transform: translateY(0);
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    100% {
-        -moz-transform: translateY(100%);
-        -o-transform: translateY(100%);
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
-    }
-}
-@-o-keyframes picker-to-bottom {
-    0% {
-        -moz-transform: translateY(0);
-        -o-transform: translateY(0);
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    100% {
-        -moz-transform: translateY(100%);
-        -o-transform: translateY(100%);
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
-    }
-}
-@keyframes picker-to-bottom {
-    0% {
-        -moz-transform: translateY(0);
-        -o-transform: translateY(0);
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    100% {
-        -moz-transform: translateY(100%);
-        -o-transform: translateY(100%);
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
-    }
-}
-@-webkit-keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@-moz-keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@-o-keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@-webkit-keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-@-moz-keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-@-o-keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
+/*picker-popup opacity*/
 @keyframes fade-in-opacity {
     from {
         opacity: 0;
@@ -222,7 +40,6 @@ html {
         background-color: rgba(0, 0, 0, 0.5);
     }
 }
-
 @keyframes fade-out-opacity {
     from {
         opacity: 1;
@@ -234,13 +51,13 @@ html {
     }
 }
 
+/*4s black ease in*/
 .picker-popup {
     z-index: 20;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    /* bottom: 0; */
     height: 100vh; /* picker-popup full screen */
     background-color: rgba(0, 0, 0, 0.2);
     --option-height: 400px;
@@ -254,23 +71,12 @@ html {
     position: absolute;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    left: 0;
     height: 100%; /* selector fill the picker-popup */
+    left: 0;
     right: 0;
-    bottom: 0;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
     flex-direction: column;
-    padding: 0;
     background-color: var(--background-2-color);
-    box-sizing: border-box;
-
-
-
 }
 .picker-popup .selector .toolbar {
     position: absolute;
@@ -291,12 +97,11 @@ html {
 }
 .picker-popup .selector .toolbar .left {
     position: absolute;
-
     color: var(--blue);
     cursor: pointer;
 }
 .picker-popup .selector .toolbar .center {
-    font-weight: 600;
+    font-weight: 200;
     color: var(--color);
 }
 .picker-popup .selector .toolbar .right {
@@ -313,7 +118,6 @@ html {
     position: absolute;
     left: 0;
     width: min(100vw, calc(100vh * (768 / 1024)));
-
     box-sizing: border-box;
     pointer-events: none;
     background-color: var(--background-2-color);
@@ -329,7 +133,6 @@ html {
 }
 .picker-popup .selector .column {
     width: min(100vw, calc(100vh * (768 / 1024)));
-
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -351,10 +154,10 @@ height: calc( var(--popup-height) / 2 - var(--option-height) / 2 - var(--toolbar
     content: " ";
 height: calc( var(--popup-height) / 2 - var(--option-height) / 2 - var(--toolbar-height) / 2 );
 }
-.picker-popup .selector .column .option {
+.option {
     scroll-snap-align: center;
     flex-shrink: 0;
-    height: var(--option-height);
+    height: 40rem;
     font-size: 14px;
     display: -webkit-box;
     display: -moz-box;
@@ -366,15 +169,12 @@ height: calc( var(--popup-height) / 2 - var(--option-height) / 2 - var(--toolbar
     opacity: 0.5; /* Default transparency */
     transition: opacity 0.5s ease-in-out; /* Make transparency changes smooth */
 }
-.picker-popup .selector .column .option .pill {
+.pill {
     background-color: var(--border-color);
-    padding: 40px 200px;
-    height: 320px;
+    height: 40rem;
     width: min(100vw, calc(100vh * (768 / 1024)));
     color: #fff;
 }
-
-
 .picker-popup .selector .column .option .pill.blue {
     background-color: var(--blue);
 }
