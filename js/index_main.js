@@ -15,10 +15,9 @@ function playSoundAndRedirect() {
     });
     // black screen
     document.querySelector('.overlay').style.opacity = 1;
-
 }
 
-/* black background ease-in */
+// black background ease-in
 document.getElementById('showOverlayBtn').addEventListener('click', function() {
     document.querySelector('.overlay').classList.add('active');
 });
